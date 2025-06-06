@@ -177,3 +177,16 @@ themeButton.addEventListener("click", () => {
   localStorage.setItem("selected-theme", getCurrentTheme());
   localStorage.setItem("selected-icon", getCurrentIcon());
 });
+
+
+document.querySelector('.contact__form').addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  emailjs.sendForm('service_31tiwxn', 'template_efamsop', this)
+    .then(function (response) {
+      alert('Email sent successfully!', response.status, response.text);
+    }, function (error) {
+      alert('FAILED...', error);
+    });
+});
+
